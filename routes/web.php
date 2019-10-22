@@ -17,5 +17,8 @@ Route::get('/', function () {
 
 Route::get('dados', function () {
     $name = request('name');
-    return $name;
+    return view('dados', [
+       'name' => $name
+    ]);
 });
+
