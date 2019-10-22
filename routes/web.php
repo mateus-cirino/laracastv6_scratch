@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('dados', function () {
+    $name = request('name');
+    return $name;
+});
