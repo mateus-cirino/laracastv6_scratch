@@ -22,5 +22,5 @@ Route::get('dados', function () {
     ]);
 });
 
-Route::get('post/{post}', 'PostController@show');
+Route::get('posts/{post}', 'PostController@show');
 

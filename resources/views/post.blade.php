@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Posts</h1>
-    <p>{{ $post }}</p>
+    <h2>{{ $post->slug }}</h2>
+    <p>{{ $post->body }}</p>
 </body>
 </html>
