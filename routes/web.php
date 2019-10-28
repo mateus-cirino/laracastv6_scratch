@@ -24,3 +24,7 @@ Route::get('dados', function () {
 
 Route::get('posts/{post}', 'PostController@show');
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
