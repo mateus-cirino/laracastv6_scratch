@@ -16,14 +16,18 @@
 		<div id="sidebar">
 			<ul class="style1">
 
-				@foreach ($articles as $article)
+				@forelse ($articles as $article)
 
 				<li class="first">
 					<h3>{{ $article->title }}</h3>
-					<p><a href="#">{{ $article->excerpt }}</a></p>
+				<p><a href="{{ url('/articles/' . $article->id) }}">{{ $article->excerpt }}</a></p>
 				</li>
 
-				@endforeach
+				@empty
+
+					<p> Empty </p>
+
+				@endforelse
 			</ul>
 			<div id="stwo-col">
 				<div class="sbox1">
