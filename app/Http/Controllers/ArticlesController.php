@@ -9,7 +9,7 @@ class ArticlesController extends Controller
 {
     public function index () {
         return view ('article.index', [
-            'articles' => Article::paginate()
+            'articles' => Article::paginate(1)
         ]);
     }
     
