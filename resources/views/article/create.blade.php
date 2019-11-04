@@ -18,19 +18,27 @@
 
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
+                    <input type="text" name="title" class="form-control @error('title') alert-danger @enderror" id="title" placeholder="Enter title" value="{{ old('title') }}">
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="excerpt">Excerpt</label>
-                    <input type="text" name="excerpt" class="form-control" id="excerpt" placeholder="Enter excerpt">
+                    <input type="text" name="excerpt" class="form-control @error('excerpt') alert-danger @enderror" id="excerpt" placeholder="Enter excerpt" value="{{ old('excerpt') }}">
+                    @error('excerpt')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="body">Body</label>
-                    <input type="text" name="body" class="form-control" id="body" placeholder="Enter body">
+                    <input type="text" name="body" class="form-control @error('body') alert-danger @enderror" id="body" placeholder="Enter body" value="{{ old('body') }}">
+                    @error('body')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
