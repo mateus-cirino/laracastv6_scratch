@@ -37,14 +37,14 @@ Route::get('/about', function () {
 });
 Route::post('/articles', 'ArticlesController@store');
 
-Route::put('/articles/{id}', 'ArticlesController@update');
+Route::put('/articles/{article}', 'ArticlesController@update');
 
-Route::delete('/articles/{id}', 'ArticlesController@destroy');
+Route::delete('/articles/{article}', 'ArticlesController@destroy');
 
-Route::get('/articles/{id}/edit', 'ArticlesController@edit');
+Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 
 Route::get('/articles/create', 'ArticlesController@create');
 
-Route::get('/articles/{id}', 'ArticlesController@show');
+Route::get('/articles/{article}', 'ArticlesController@show');
 
 Route::get('/articles', 'ArticlesController@index');

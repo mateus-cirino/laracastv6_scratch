@@ -14,9 +14,8 @@ class ArticlesController extends Controller
         ]);
     }
     
-    public function show ($articleid) {
-        $article = Article::find($articleid);
-
+    public function show (Article $article) {
+        // show a view to determinate article
         return view ('article.show', [
             'article' => $article
         ]);
@@ -41,9 +40,8 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit ($articleid) {
+    public function edit (Article $article) {
         // show a view to edit an existing resource
-        $article = Article::find($articleid);
         return view ('article.edit',[
         'article' => $article]);
     }
@@ -62,10 +60,8 @@ class ArticlesController extends Controller
         
     }
 
-    public function destroy () {
+    public function destroy (Article $article) {
         // delete the resource
-        $article = Article::find(request('id'));
-
         $article->delete();
     
         return redirect('/articles');
