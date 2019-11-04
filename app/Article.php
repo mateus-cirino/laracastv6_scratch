@@ -12,4 +12,9 @@ class Article extends Model
     {
         return route('article.show', $this);
     }
+
+    public function author() 
+    {
+        return $this->belongsTo(User::Class, 'user_id');
+    }
 }
