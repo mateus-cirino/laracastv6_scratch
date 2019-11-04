@@ -25,8 +25,8 @@ class ArticleRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'body' => 'required',
-            'excerpt' => 'required'
+            'excerpt' => 'required',
+            'body' => 'required'
         ];
     }
 }

@@ -28,14 +28,11 @@ class ArticlesController extends Controller
 
     public function store (ArticleRequest $request) {
         // persiste the new resource
-
-        $article = new Article();
-
-        $article->title = $request('title');
-        $article->excerpt = $request('excerpt');
-        $article->body = $request('body');
-        
-        $article->save();
+        Article::create([
+            'title' => $request->title,
+            'excerpt' => $request->excerpt,
+            'body' =>   $request->body
+        ]);
 
         return redirect('/articles');
     }
@@ -46,15 +43,13 @@ class ArticlesController extends Controller
         'article' => $article]);
     }
 
-    public function update () {
+    public function update (ArticleRequest $request, Article $article) {
         // persiste the edit on the resource
-        $article = Article::find(request('id'));
-
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-        
-        $article->save();
+        $article->update([
+            'title' => $request->title,
+            'excerpt' => $request->excerpt,
+            'body' =>   $request->body
+        ]);
 
         return redirect('/articles/' . $article->id);
         
