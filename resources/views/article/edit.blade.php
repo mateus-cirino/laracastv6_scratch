@@ -15,8 +15,8 @@
             <form method="POST" action="/articles/{{ $article->id }}">
 
                 @csrf
-                @method ('PUT')
-
+                @method('PUT')
+                
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title" class="form-control" id="title" value="{{ $article->title }}">
@@ -33,6 +33,14 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <form method="POST" action="/articles/{{ $article->id }}">
+                
+                @csrf
+                @method('DELETE')
+
+                <button type="button" class="btn btn-danger">Deletar</button>
             </form>
         </div>
     </div>

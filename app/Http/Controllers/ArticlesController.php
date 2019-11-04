@@ -47,9 +47,9 @@ class ArticlesController extends Controller
         'article' => $article]);
     }
 
-    public function update ($articleid) {
+    public function update () {
         // persiste the edit on the resource
-        $article = Article::find($articleid);
+        $article = Article::find(request('id'));
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');
@@ -63,5 +63,10 @@ class ArticlesController extends Controller
 
     public function destroy () {
         // delete the resource
+        $article = Article::find(request('id'));
+
+        $article->delete();
+    
+        return redirect('/articles');
     }
 }
