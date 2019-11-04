@@ -12,7 +12,7 @@
     <div id="page" class="container">
         <div id="content">
             <h1>Edit a Article</h1>
-            <form method="POST" action="/articles/{{ $article->id }}">
+            <form method="POST" action="{{ $article->path() }}">
 
                 @csrf
                 @method('PUT')

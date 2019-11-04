@@ -12,7 +12,7 @@
 */
 
 use App\Http\Controllers\ArticlesController;
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,6 +35,8 @@ Route::get('/about', function () {
         'articles' => App\Article::take(3)->latest()->get()            
     ]);
 });
+*/
+
 Route::post('/articles', 'ArticlesController@store');
 
 Route::put('/articles/{article}', 'ArticlesController@update');
@@ -45,6 +47,6 @@ Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 
 Route::get('/articles/create', 'ArticlesController@create');
 
-Route::get('/articles/{article}', 'ArticlesController@show');
+Route::get('/articles/{article}', 'ArticlesController@show')->name('article.show');
 
-Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles', 'ArticlesController@index')->name('article.index');

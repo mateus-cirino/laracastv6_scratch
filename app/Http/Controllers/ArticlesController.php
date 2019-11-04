@@ -34,7 +34,7 @@ class ArticlesController extends Controller
             'body' =>   $request->body
         ]);
 
-        return redirect('/articles');
+        return redirect( route('article.index') );
     }
 
     public function edit (Article $article) {
@@ -51,7 +51,7 @@ class ArticlesController extends Controller
             'body' =>   $request->body
         ]);
 
-        return redirect('/articles/' . $article->id);
+        return redirect( $article->path() );
         
     }
 
@@ -59,6 +59,6 @@ class ArticlesController extends Controller
         // delete the resource
         $article->delete();
     
-        return redirect('/articles');
+        return redirect( route('article.index') );
     }
 }
