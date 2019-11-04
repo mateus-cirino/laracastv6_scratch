@@ -35,10 +35,14 @@ Route::get('/about', function () {
         'articles' => App\Article::take(3)->latest()->get()            
     ]);
 });
+Route::put('/articles/{articleid}', 'ArticlesController@update');
+
+Route::get('/articles/{articleid}/edit', 'ArticlesController@edit');
+
 Route::get('/articles', 'ArticlesController@index');
 
 Route::post('/articles', 'ArticlesController@store');
 
 Route::get('/articles/create', 'ArticlesController@create');
 
-Route::get('/articles/{article}', 'ArticlesController@show');
+Route::get('/articles/{articleid}', 'ArticlesController@show');

@@ -13,8 +13,8 @@ class ArticlesController extends Controller
         ]);
     }
     
-    public function show ($id) {
-        $article = Article::find($id);
+    public function show ($articleid) {
+        $article = Article::find($articleid);
 
         return view ('article.show', [
             'article' => $article
@@ -40,14 +40,25 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit () {
+    public function edit ($articleid) {
         // show a view to edit an existing resource
-
+        $article = Article::find($articleid);
+        return view ('article.edit',[
+        'article' => $article]);
     }
 
-    public function update () {
+    public function update ($articleid) {
         // persiste the edit on the resource
+        $article = Article::find($articleid);
 
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+        
+        $article->save();
+
+        return redirect('/articles/' . $article->id);
+        
     }
 
     public function destroy () {
