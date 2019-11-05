@@ -10,7 +10,10 @@
 				<span class="byline">{{ $article->excerpt }}</span> </div>
 			<p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
 			<p>{{ $article->body }}</p>
-        </div>
+			@foreach ($article->tags as $tag)
+				<a href="{{ route ('article.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
+			@endforeach
+		</div>
     </div>
 </div>
 

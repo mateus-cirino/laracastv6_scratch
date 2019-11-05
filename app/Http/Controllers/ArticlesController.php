@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
     public function index () {
+        if (request('tag')) {
+            $articles = Tag::where('name', request('tag'))->firstOrFail()->articles()->paginate(3);
+        }
+        else {
+            $articles = Article::all();
+        }
         return view ('article.index', [
-            'articles' => Article::paginate(3)
+            'articles' => $articles
         ]);
     }
     
